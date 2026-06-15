@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 :root{
     --primary:#2C5EAD;
     --secondary:#1591DC;
@@ -10,7 +11,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Manrope',sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -35,10 +36,16 @@ nav{
     box-shadow:0 2px 15px rgba(0,0,0,.06);
 }
 
-.logo{
-    font-size:30px;
-    font-weight:800;
-    color:var(--primary);
+.logo {
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  transition: 0.3s;
+}
+
+.logo:hover {
+  color: var(--secondary);
 }
 
 nav ul{
@@ -282,7 +289,71 @@ nav ul a{
     color:#334155;
     margin-bottom:20px;
 }
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298,
+        #3fa9f5
+    );
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
 
+.hero-container {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    color: white;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 20px 40px rgba(0,0,0,0.25)
+    );
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/doctor.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;        /* low opacity = light/faded look */
+    z-index: 0;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;           /* keeps text above the background image */
+}
 .founder-content blockquote{
     font-size:28px;
     font-weight:700;
