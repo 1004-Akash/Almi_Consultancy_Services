@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALMI lawyer</title>
+<title>ALMI Lawyer | Premium Legal Websites</title>
+
+<!-- Poppins Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --primary-dark:#2C5EAD;
   --primary:#1591DC;
   --primary-light:#4BB8FA;
-  --bg-soft:#C4E2F5;
-  --text-dark:#0a0f1c;
+  --text:#0a0f1c;
   --white:#ffffff;
 }
 
@@ -19,14 +21,16 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family: 'Poppins', sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background: radial-gradient(circle at top, var(--bg-soft), #0a0f1c 70%);
-color:white;
+background:#ffffff;
+color:var(--text);
 overflow-x:hidden;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
 }
 
 /* NAV */
@@ -38,13 +42,15 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 50px;
-background:linear-gradient(90deg,var(--primary-dark),var(--primary));
-backdrop-filter:blur(10px);
+background:#ffffff;
+box-shadow:0 2px 15px rgba(0,0,0,0.08);
 z-index:999;
 }
 
 nav h2{
-color:white;
+color:var(--primary-dark);
+font-weight:700;
+letter-spacing:1px;
 }
 
 nav ul{
@@ -57,13 +63,14 @@ margin:0 15px;
 }
 
 nav ul li a{
-color:white;
+color:var(--text);
 text-decoration:none;
+font-weight:500;
 transition:0.3s;
 }
 
 nav ul li a:hover{
-color:var(--bg-soft);
+color:var(--primary);
 }
 
 /* HERO */
@@ -80,40 +87,42 @@ text-align:center;
 .hero::after{
 content:'';
 position:absolute;
-top:0;left:0;
-width:100%;height:100%;
-background:linear-gradient(135deg,
-rgba(44,94,173,0.85),
-rgba(21,145,220,0.7),
-rgba(75,184,250,0.4));
+inset:0;
+background:rgba(255,255,255,0.75);
 }
 
 .hero-content{
 position:relative;
 z-index:2;
+max-width:800px;
+padding:20px;
 }
 
 .hero h1{
 font-size:55px;
-color:white;
+font-weight:800;
+color:var(--text);
+line-height:1.2;
 }
 
 .hero p{
 margin-top:15px;
+color:#333;
+font-weight:400;
 opacity:0.9;
 }
 
 .btn{
 margin-top:25px;
-padding:12px 25px;
+padding:12px 28px;
 background:linear-gradient(135deg,var(--primary),var(--primary-light));
 border:none;
 color:white;
-font-weight:bold;
+font-weight:600;
 cursor:pointer;
-border-radius:8px;
+border-radius:10px;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(21,145,220,0.4);
+box-shadow:0 10px 25px rgba(21,145,220,0.25);
 }
 
 .btn:hover{
@@ -122,14 +131,15 @@ transform:scale(1.05);
 
 /* SECTIONS */
 section{
-padding:80px 10%;
+padding:90px 10%;
 }
 
 .title{
 text-align:center;
-font-size:35px;
+font-size:38px;
+font-weight:700;
 margin-bottom:40px;
-background:linear-gradient(90deg,var(--primary-dark),var(--primary-light));
+background:linear-gradient(90deg,var(--primary-dark),var(--primary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -144,10 +154,10 @@ align-items:center;
 
 .about img{
 width:100%;
-border-radius:12px;
+border-radius:14px;
 }
 
-/* SERVICES */
+/* CARDS */
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -155,21 +165,19 @@ gap:20px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-padding:20px;
+background:#f8fbff;
+padding:22px;
 border-radius:12px;
-border:1px solid rgba(75,184,250,0.2);
-backdrop-filter:blur(10px);
+border:1px solid #e6f0ff;
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-background:rgba(21,145,220,0.15);
-box-shadow:0 15px 30px rgba(44,94,173,0.3);
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* WHY US */
+/* WHY */
 .why{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -177,24 +185,19 @@ gap:20px;
 }
 
 .box{
-background:rgba(255,255,255,0.05);
+background:#f8fbff;
 padding:20px;
 border-radius:12px;
 border-left:4px solid var(--primary);
 }
 
 /* PROCESS */
-.process{
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
 .step{
-background:rgba(255,255,255,0.05);
+background:#f8fbff;
 padding:15px;
 border-radius:8px;
-border:1px solid rgba(75,184,250,0.2);
+margin-bottom:10px;
+border:1px solid #e6f0ff;
 }
 
 /* CONTACT */
@@ -208,9 +211,10 @@ margin:auto;
 
 input,textarea{
 padding:12px;
-border:none;
-border-radius:6px;
+border:1px solid #ddd;
+border-radius:8px;
 outline:none;
+font-family: 'Poppins', sans-serif;
 }
 
 textarea{
@@ -221,30 +225,32 @@ resize:none;
 footer{
 text-align:center;
 padding:20px;
-background:#000;
+background:#0a0f1c;
 color:#aaa;
+margin-top:40px;
 }
 
-/* FLOAT WHATSAPP */
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:12px 15px;
+padding:12px 16px;
 border-radius:50px;
 text-decoration:none;
-font-weight:bold;
-box-shadow:0 10px 20px rgba(0,0,0,0.3);
+font-weight:600;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* MOBILE */
 @media(max-width:768px){
-.hero h1{font-size:30px;}
+.hero h1{font-size:32px;}
 .about{grid-template-columns:1fr;}
 form{width:100%;}
 nav{padding:15px 20px;}
+nav ul{display:none;}
 }
 </style>
 </head>
@@ -277,12 +283,10 @@ nav{padding:15px 20px;}
 <h2 class="title">About Us</h2>
 <div class="about">
 <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216">
-<div>
 <p>
 We build premium websites for lawyers, advocates, and law firms.
-Our focus is trust, conversion, and modern digital presence.
+Focused on trust, branding, and client conversion with modern UI/UX.
 </p>
-</div>
 </div>
 </section>
 
@@ -290,35 +294,33 @@ Our focus is trust, conversion, and modern digital presence.
 <section id="services">
 <h2 class="title">Our Services</h2>
 <div class="cards">
-<div class="card">⚖️ Lawyer Portfolio Websites</div>
-<div class="card">🏛️ Law Firm Websites</div>
+<div class="card">⚖ Lawyer Portfolio Websites</div>
+<div class="card">🏛 Law Firm Websites</div>
 <div class="card">📱 Mobile Responsive Design</div>
 <div class="card">🔍 SEO Optimization</div>
 <div class="card">📅 Booking System</div>
-<div class="card">⚙️ Maintenance</div>
+<div class="card">⚙ Maintenance</div>
 </div>
 </section>
 
-<!-- WHY US -->
+<!-- WHY -->
 <section id="why">
 <h2 class="title">Why Choose Us</h2>
 <div class="why">
-<div class="box">✔ Premium UI/UX Design</div>
-<div class="box">✔ Fast Loading Websites</div>
-<div class="box">✔ Client Conversion Focused</div>
-<div class="box">✔ Affordable Pricing</div>
+<div class="box">Premium UI/UX Design</div>
+<div class="box">Fast Loading Websites</div>
+<div class="box">Client Conversion Focused</div>
+<div class="box">Affordable Pricing</div>
 </div>
 </section>
 
 <!-- PROCESS -->
 <section>
-<h2 class="title">Our Process</h2>
-<div class="process">
+<h2 class="title">Process</h2>
 <div class="step">1. Requirement Discussion</div>
 <div class="step">2. Design Prototype</div>
 <div class="step">3. Development</div>
 <div class="step">4. Deployment</div>
-</div>
 </section>
 
 <!-- CONTACT -->
@@ -329,19 +331,18 @@ Our focus is trust, conversion, and modern digital presence.
 <input type="text" placeholder="Your Name" required>
 <input type="email" placeholder="Your Email" required>
 <textarea placeholder="Project Details"></textarea>
-<button class="btn">Request Demo</button>
+<button class="btn">Send Request</button>
 </form>
 
 </section>
 
+<!-- FOOTER -->
 <footer>
 © 2026 ALMI | Premium Legal Web Solutions
 </footer>
 
 <!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">
-💬 Chat
-</a>
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬 Chat</a>
 
 <script>
 function scrollToContact(){
