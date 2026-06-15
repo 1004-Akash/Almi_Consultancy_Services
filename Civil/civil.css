@@ -55,17 +55,15 @@ body {
 
   padding: 18px 8%;
 
-  background: rgba(44, 94, 173, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
-
-.almi-btn {
+.logo {
   background: white;
   color: #2c5ead;
   border: none;
   padding: 12px 25px;
-  border-radius: 50px;
+ 
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
@@ -73,7 +71,7 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.almi-btn:hover {
+.logo:hover {
   background: #c4e2f5;
   transform: translateY(-3px);
 }
@@ -85,18 +83,18 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: rgb(6, 6, 6);
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: #c4e2f5;
+  color: #00080d;
 }
 
 .nav-links a.active {
-  color: #c4e2f5;
+  color: #000203;
   border-bottom: 2px solid white;
   padding-bottom: 5px;
 }
