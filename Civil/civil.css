@@ -13,15 +13,7 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --dark-blue: #2c5ead;
-  --primary-blue: #1591dc;
-  --light-blue: #4bb8fa;
-  --bg-blue: #c4e2f5;
-  --white: #ffffff;
-  --dark: #1e293b;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
+
 
 body {
   background: #f8fbff;
@@ -435,4 +427,36 @@ footer p {
   .hero-content {
     padding: 25px;
   }
+}
+/* ALWAYS KEEP NAVBAR WHITE */
+
+.navbar {
+  background: #ffffff !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar:hover {
+  background: #ffffff !important;
+}
+
+.logo {
+  background: #ffffff !important;
+}
+
+.nav-links a {
+  color: #000 !important;
+}
+
+.nav-links a:hover {
+  color: #2c5ead !important;
+}
+
+.nav-links a.active {
+  color: #2c5ead !important;
+  border-bottom: 2px solid #2c5ead;
 }
