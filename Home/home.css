@@ -281,10 +281,26 @@ section {
   transform: translateY(-10px);
 }
 
-.benefit-card span {
-  font-size: 45px;
-  display: block;
-  margin-bottom: 15px;
+.benefit-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2c5ead, #1591dc);
+  border-radius: 18px;
+  color: white;
+}
+
+.benefit-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.benefit-card:hover .benefit-icon {
+  transform: translateY(-5px) rotate(5deg);
+  transition: 0.3s ease;
 }
 
 .benefit-card h3 {
@@ -531,4 +547,53 @@ section {
   .cta-section h2 {
     font-size: 36px;
   }
+}
+
+.videos {
+  padding: 120px 8%;
+  background: #fff;
+}
+
+.video-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.video-card {
+  min-width: 500px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.video-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(44, 94, 173, 0.9);
+  color: white;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  transition: 0.3s;
 }
