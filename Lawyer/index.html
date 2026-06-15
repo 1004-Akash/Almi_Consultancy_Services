@@ -3,9 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LawWeb Studio - Websites for Lawyers</title>
+<title>LawWeb Studio - Premium Legal Websites</title>
 
 <style>
+:root{
+  --primary-dark:#2C5EAD;
+  --primary:#1591DC;
+  --primary-light:#4BB8FA;
+  --bg-soft:#C4E2F5;
+  --text-dark:#0a0f1c;
+  --white:#ffffff;
+}
+
 *{
 margin:0;
 padding:0;
@@ -15,7 +24,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#0a0f1c;
+background: radial-gradient(circle at top, var(--bg-soft), #0a0f1c 70%);
 color:white;
 overflow-x:hidden;
 }
@@ -29,13 +38,13 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 50px;
-background:rgba(0,0,0,0.6);
+background:linear-gradient(90deg,var(--primary-dark),var(--primary));
 backdrop-filter:blur(10px);
 z-index:999;
 }
 
 nav h2{
-color:#d4af37;
+color:white;
 }
 
 nav ul{
@@ -54,7 +63,7 @@ transition:0.3s;
 }
 
 nav ul li a:hover{
-color:#d4af37;
+color:var(--bg-soft);
 }
 
 /* HERO */
@@ -73,7 +82,10 @@ content:'';
 position:absolute;
 top:0;left:0;
 width:100%;height:100%;
-background:rgba(0,0,0,0.65);
+background:linear-gradient(135deg,
+rgba(44,94,173,0.85),
+rgba(21,145,220,0.7),
+rgba(75,184,250,0.4));
 }
 
 .hero-content{
@@ -83,24 +95,25 @@ z-index:2;
 
 .hero h1{
 font-size:55px;
-color:#fff;
+color:white;
 }
 
 .hero p{
 margin-top:15px;
-opacity:0.8;
+opacity:0.9;
 }
 
 .btn{
 margin-top:25px;
 padding:12px 25px;
-background:#d4af37;
+background:linear-gradient(135deg,var(--primary),var(--primary-light));
 border:none;
-color:black;
+color:white;
 font-weight:bold;
 cursor:pointer;
-border-radius:5px;
+border-radius:8px;
 transition:0.3s;
+box-shadow:0 10px 25px rgba(21,145,220,0.4);
 }
 
 .btn:hover{
@@ -116,7 +129,9 @@ padding:80px 10%;
 text-align:center;
 font-size:35px;
 margin-bottom:40px;
-color:#d4af37;
+background:linear-gradient(90deg,var(--primary-dark),var(--primary-light));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 /* ABOUT */
@@ -129,7 +144,7 @@ align-items:center;
 
 .about img{
 width:100%;
-border-radius:10px;
+border-radius:12px;
 }
 
 /* SERVICES */
@@ -142,13 +157,16 @@ gap:20px;
 .card{
 background:rgba(255,255,255,0.05);
 padding:20px;
-border-radius:10px;
+border-radius:12px;
+border:1px solid rgba(75,184,250,0.2);
 backdrop-filter:blur(10px);
 transition:0.3s;
 }
 
 .card:hover{
 transform:translateY(-10px);
+background:rgba(21,145,220,0.15);
+box-shadow:0 15px 30px rgba(44,94,173,0.3);
 }
 
 /* WHY US */
@@ -159,10 +177,10 @@ gap:20px;
 }
 
 .box{
-background:#111827;
+background:rgba(255,255,255,0.05);
 padding:20px;
-border-radius:10px;
-border-left:3px solid #d4af37;
+border-radius:12px;
+border-left:4px solid var(--primary);
 }
 
 /* PROCESS */
@@ -176,6 +194,7 @@ gap:15px;
 background:rgba(255,255,255,0.05);
 padding:15px;
 border-radius:8px;
+border:1px solid rgba(75,184,250,0.2);
 }
 
 /* CONTACT */
@@ -190,7 +209,8 @@ margin:auto;
 input,textarea{
 padding:12px;
 border:none;
-border-radius:5px;
+border-radius:6px;
+outline:none;
 }
 
 textarea{
@@ -202,7 +222,21 @@ footer{
 text-align:center;
 padding:20px;
 background:#000;
-color:#888;
+color:#aaa;
+}
+
+/* FLOAT WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:12px 15px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* MOBILE */
@@ -213,7 +247,6 @@ form{width:100%;}
 nav{padding:15px 20px;}
 }
 </style>
-
 </head>
 
 <body>
@@ -233,8 +266,8 @@ nav{padding:15px 20px;}
 <!-- HERO -->
 <div class="hero" id="home">
 <div class="hero-content">
-<h1>We Build Premium Websites for Lawyers</h1>
-<p>Modern, Fast & High-Converting Legal Websites</p>
+<h1>Premium Websites for Lawyers</h1>
+<p>Modern • Fast • High-Converting Legal Websites</p>
 <button class="btn" onclick="scrollToContact()">Get Free Demo</button>
 </div>
 </div>
@@ -246,8 +279,8 @@ nav{padding:15px 20px;}
 <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216">
 <div>
 <p>
-We are a web development studio specializing in building premium websites for lawyers, advocates, and law firms.
-Our goal is to help legal professionals grow online with trust-building digital presence.
+We build premium websites for lawyers, advocates, and law firms.
+Our focus is trust, conversion, and modern digital presence.
 </p>
 </div>
 </div>
@@ -257,12 +290,12 @@ Our goal is to help legal professionals grow online with trust-building digital 
 <section id="services">
 <h2 class="title">Our Services</h2>
 <div class="cards">
-<div class="card">Lawyer Portfolio Websites</div>
-<div class="card">Law Firm Websites</div>
-<div class="card">Mobile Responsive Design</div>
-<div class="card">SEO Optimization</div>
-<div class="card">Booking & Consultation System</div>
-<div class="card">Website Maintenance</div>
+<div class="card">⚖️ Lawyer Portfolio Websites</div>
+<div class="card">🏛️ Law Firm Websites</div>
+<div class="card">📱 Mobile Responsive Design</div>
+<div class="card">🔍 SEO Optimization</div>
+<div class="card">📅 Booking System</div>
+<div class="card">⚙️ Maintenance</div>
 </div>
 </section>
 
@@ -302,8 +335,13 @@ Our goal is to help legal professionals grow online with trust-building digital 
 </section>
 
 <footer>
-© 2026 LawWeb Studio | All Rights Reserved
+© 2026 LawWeb Studio | Premium Legal Web Solutions
 </footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">
+💬 Chat
+</a>
 
 <script>
 function scrollToContact(){
@@ -312,7 +350,7 @@ document.getElementById("contact").scrollIntoView({behavior:"smooth"});
 
 function send(e){
 e.preventDefault();
-alert("We will contact you soon for your website project!");
+alert("Thanks! We will contact you soon.");
 }
 </script>
 
