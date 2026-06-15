@@ -2,12 +2,236 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Almi Consultancy Services</title>
+
+    <link rel="stylesheet" href="banking.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
     />
-    <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="about.html" class="logo"> ALMI </a>
+
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#footer-contact" class="nav-btn"> Get Consultation </a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="hero-content reveal">
+        <h1>Banking Transformation Experts</h1>
+
+        <p>
+          Helping financial institutions modernize operations, accelerate
+          digital transformation, improve compliance, and unlock sustainable
+          growth through innovative banking solutions.
+        </p>
+
+        <div class="hero-buttons">
+          <button
+            class="primary-btn"
+            onclick="window.location.href = '#services'"
+          >
+            Explore Services
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="window.location.href = '#contact'"
+          >
+            Talk to Experts
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="card-glow"></div>
+
+        <div class="floating-box one"></div>
+        <div class="floating-box two"></div>
+        <div class="floating-box three"></div>
+
+        <h3>Digital Banking</h3>
+        <p>Modern Banking Ecosystems</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+
+    <section id="services" class="services">
+      <div class="section-title reveal">
+        <h2>Our Banking Solutions</h2>
+        <p>Transforming financial institutions with cutting-edge consulting.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <h3>Digital Banking</h3>
+          <p>Build next-generation customer experiences.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>Risk & Compliance</h3>
+          <p>Navigate regulations with confidence.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>Cloud Migration</h3>
+          <p>Modernize infrastructure securely.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>AI Analytics</h3>
+          <p>Data-driven decision making.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>Core Banking</h3>
+          <p>Future-proof banking operations.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>Cyber Security</h3>
+          <p>Protect financial ecosystems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+
+    <section class="stats">
+      <div class="stat reveal">
+        <h2>500+</h2>
+        <p>Projects Delivered</p>
+      </div>
+
+      <div class="stat reveal">
+        <h2>120+</h2>
+        <p>Banking Clients</p>
+      </div>
+
+      <div class="stat reveal">
+        <h2>25+</h2>
+        <p>Countries Served</p>
+      </div>
+
+      <div class="stat reveal">
+        <h2>98%</h2>
+        <p>Client Satisfaction</p>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+
+    <section id="expertise" class="expertise">
+      <div class="section-title reveal">
+        <h2>Industry Expertise</h2>
+      </div>
+
+      <div class="expertise-container">
+        <div class="expertise-card reveal">Retail Banking</div>
+        <div class="expertise-card reveal">Corporate Banking</div>
+        <div class="expertise-card reveal">Investment Banking</div>
+        <div class="expertise-card reveal">Digital Payments</div>
+        <div class="expertise-card reveal">FinTech Solutions</div>
+        <div class="expertise-card reveal">Open Banking</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+      <div class="about-left reveal">
+        <h2>Why Choose Almi Consultancy Services?</h2>
+
+        <p>
+          We combine industry expertise, technology innovation, and strategic
+          consulting to help banks transform operations and achieve long-term
+          success.
+        </p>
+      </div>
+
+      <div class="about-right reveal">
+        <div class="feature">✓ Banking Domain Expertise</div>
+
+        <div class="feature">✓ AI Driven Transformation</div>
+
+        <div class="feature">✓ Cloud Native Solutions</div>
+
+        <div class="feature">✓ Security & Compliance</div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+
+    <section id="contact" class="cta reveal">
+      <h2>Ready To Transform Your Bank?</h2>
+
+      <p>Connect with our consultants and unlock the future of banking.</p>
+
+      <button
+        class="primary-btn"
+        onclick="window.location.href = '#footer-contact'"
+      >
+        Schedule Consultation
+      </button>
+    </section>
+    <footer id="footer-contact" class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <h2>Get In Touch</h2>
+
+          <p>
+            Looking to transform your banking operations? Connect with our
+            consultants and let's discuss your business goals.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">contact@almiconsultancy.com</div>
+
+            <div class="contact-item">+91 98765 43210</div>
+
+            <div class="contact-item">Chennai, Tamil Nadu, India</div>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <form class="contact-form">
+            <div class="input-group">
+              <input type="text" placeholder="Your Name" required />
+            </div>
+
+            <div class="input-group">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+
+            <div class="input-group">
+              <input type="tel" placeholder="Contact Number" required />
+            </div>
+
+            <div class="input-group">
+              <textarea rows="5" placeholder="Your Message" required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <script src="banking.js"></script>
+  </body>
 </html>

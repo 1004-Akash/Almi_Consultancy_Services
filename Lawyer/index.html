@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LawWeb Studio - Websites for Lawyers</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0a0f1c;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 50px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+nav h2{
+color:#d4af37;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin:0 15px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#d4af37;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1589578527966-fdac0f44566c') center/cover no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:55px;
+color:#fff;
+}
+
+.hero p{
+margin-top:15px;
+opacity:0.8;
+}
+
+.btn{
+margin-top:25px;
+padding:12px 25px;
+background:#d4af37;
+border:none;
+color:black;
+font-weight:bold;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* SECTIONS */
+section{
+padding:80px 10%;
+}
+
+.title{
+text-align:center;
+font-size:35px;
+margin-bottom:40px;
+color:#d4af37;
+}
+
+/* ABOUT */
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:10px;
+}
+
+/* SERVICES */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:10px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* WHY US */
+.why{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.box{
+background:#111827;
+padding:20px;
+border-radius:10px;
+border-left:3px solid #d4af37;
+}
+
+/* PROCESS */
+.process{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.step{
+background:rgba(255,255,255,0.05);
+padding:15px;
+border-radius:8px;
+}
+
+/* CONTACT */
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+width:60%;
+margin:auto;
+}
+
+input,textarea{
+padding:12px;
+border:none;
+border-radius:5px;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+color:#888;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:30px;}
+.about{grid-template-columns:1fr;}
+form{width:100%;}
+nav{padding:15px 20px;}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<h2>LawWeb Studio</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#why">Why Us</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+<div class="hero-content">
+<h1>We Build Premium Websites for Lawyers</h1>
+<p>Modern, Fast & High-Converting Legal Websites</p>
+<button class="btn" onclick="scrollToContact()">Get Free Demo</button>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<h2 class="title">About Us</h2>
+<div class="about">
+<img src="https://images.unsplash.com/photo-1521791136064-7986c2920216">
+<div>
+<p>
+We are a web development studio specializing in building premium websites for lawyers, advocates, and law firms.
+Our goal is to help legal professionals grow online with trust-building digital presence.
+</p>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2 class="title">Our Services</h2>
+<div class="cards">
+<div class="card">Lawyer Portfolio Websites</div>
+<div class="card">Law Firm Websites</div>
+<div class="card">Mobile Responsive Design</div>
+<div class="card">SEO Optimization</div>
+<div class="card">Booking & Consultation System</div>
+<div class="card">Website Maintenance</div>
+</div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+<h2 class="title">Why Choose Us</h2>
+<div class="why">
+<div class="box">✔ Premium UI/UX Design</div>
+<div class="box">✔ Fast Loading Websites</div>
+<div class="box">✔ Client Conversion Focused</div>
+<div class="box">✔ Affordable Pricing</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<h2 class="title">Our Process</h2>
+<div class="process">
+<div class="step">1. Requirement Discussion</div>
+<div class="step">2. Design Prototype</div>
+<div class="step">3. Development</div>
+<div class="step">4. Deployment</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="title">Contact Us</h2>
+
+<form onsubmit="send(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Project Details"></textarea>
+<button class="btn">Request Demo</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 LawWeb Studio | All Rights Reserved
+</footer>
+
+<script>
+function scrollToContact(){
+document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
+
+function send(e){
+e.preventDefault();
+alert("We will contact you soon for your website project!");
+}
+</script>
+
+</body>
+</html>

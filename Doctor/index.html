@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALMI — Digital Growth for Doctors</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --ink:    #0A0F1E;
+  --white:  #FFFFFF;
+  --blue:   #1246E6;
+  --blue2:  #2B5BFF;
+  --sky:    #E8EFFE;
+  --mid:    #5A6380;
+  --pale:   #F4F6FC;
+  --green:  #0FCE8A;
+  --border: rgba(10,15,30,0.09);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;width:100%;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:66px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 4px 30px rgba(18,70,230,0.08);}
+
+.logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;
+  color:var(--ink);letter-spacing:-0.02em;
+  display:flex;align-items:center;gap:6px;
+}
+.logo-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--blue);display:inline-block;
+  margin-bottom:4px;
+}
+
+.nav-links{list-style:none;display:flex;gap:32px;}
+.nav-links a{
+  text-decoration:none;color:var(--mid);font-size:.88rem;font-weight:500;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--blue);}
+
+.nav-right{display:flex;align-items:center;gap:14px;}
+.btn-nav{
+  background:var(--blue);color:white;border:none;
+  padding:9px 22px;border-radius:8px;font-size:.86rem;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.btn-nav:hover{background:var(--blue2);transform:translateY(-1px);}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s;display:block;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding:110px 6% 80px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:var(--ink);
+}
+
+/* Subtle grid overlay */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+
+.hero-blob{
+  position:absolute;top:-180px;right:-120px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, rgba(18,70,230,0.55) 0%, transparent 65%);
+  filter:blur(2px);
+  pointer-events:none;
+}
+.hero-blob2{
+  position:absolute;bottom:-200px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle, rgba(15,206,138,0.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(18,70,230,0.18);border:1px solid rgba(18,70,230,0.4);
+  color:#7BA8FF;font-size:.75rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:22px;
+}
+
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,3.5rem);
+  font-weight:800;line-height:1.1;
+  color:var(--white);
+  letter-spacing:-0.03em;margin-bottom:20px;
+}
+.hero h1 .accent{
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(255,255,255,0.4);
+}
+.hero h1 .blue{color:#6B9FFF;}
+
+.hero-sub{
+  font-size:1rem;color:rgba(255,255,255,0.55);
+  line-height:1.8;max-width:440px;margin-bottom:36px;
+}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary-hero{
+  background:var(--blue);color:white;border:none;
+  padding:13px 28px;border-radius:9px;font-size:.92rem;font-weight:600;
+  cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary-hero:hover{background:var(--blue2);box-shadow:0 8px 28px rgba(18,70,230,0.45);transform:translateY(-2px);}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:13px 24px;border-radius:9px;font-size:.9rem;font-weight:500;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:white;}
+
+.hero-nums{
+  display:flex;gap:36px;margin-top:52px;flex-wrap:wrap;
+}
+.hnum{border-left:2px solid rgba(18,70,230,0.5);padding-left:16px;}
+.hnum-val{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:white;}
+.hnum-lbl{font-size:.75rem;color:rgba(255,255,255,0.4);margin-top:2px;}
+
+/* Hero right - floating mockup */
+.hero-right{position:relative;}
+
+.mock-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;padding:28px;
+  backdrop-filter:blur(24px);
+}
+
+.mock-topbar{
+  display:flex;align-items:center;gap:8px;margin-bottom:20px;
+}
+.mock-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.15);}
+.mock-dot.r{background:#FF5F57;}
+.mock-dot.y{background:#FEBC2E;}
+.mock-dot.g{background:#28C840;}
+
+.mock-browser-url{
+  flex:1;background:rgba(255,255,255,0.06);border-radius:6px;
+  padding:5px 12px;font-size:.72rem;color:rgba(255,255,255,0.35);
+  font-family:monospace;
+}
+
+.mock-site-header{
+  background:linear-gradient(135deg,#0D1A3A,#1246E6);
+  border-radius:10px;padding:20px 18px;margin-bottom:14px;
+}
+.mock-site-header h3{font-family:'Syne',sans-serif;font-size:.95rem;color:white;margin-bottom:6px;}
+.mock-site-header p{font-size:.72rem;color:rgba(255,255,255,0.55);line-height:1.5;}
+.mock-cta-pill{
+  display:inline-block;background:var(--blue);color:white;
+  font-size:.65rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-top:10px;
+}
+
+.mock-cards-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.mock-mini-card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:8px;padding:12px;
+}
+.mock-mini-icon{font-size:1rem;margin-bottom:6px;}
+.mock-mini-title{font-size:.7rem;color:rgba(255,255,255,0.8);font-weight:600;}
+.mock-mini-sub{font-size:.62rem;color:rgba(255,255,255,0.35);margin-top:2px;}
+
+.mock-stat-row{display:flex;gap:8px;}
+.mock-stat-pill{
+  flex:1;background:rgba(15,206,138,0.1);border:1px solid rgba(15,206,138,0.2);
+  border-radius:8px;padding:10px;text-align:center;
+}
+.mock-stat-num{font-family:'Syne',sans-serif;font-size:.9rem;color:#0FCE8A;font-weight:700;}
+.mock-stat-lbl{font-size:.6rem;color:rgba(255,255,255,0.4);margin-top:2px;}
+
+/* Float badges */
+.fbadge{
+  position:absolute;background:white;border-radius:12px;
+  padding:10px 14px;box-shadow:0 12px 40px rgba(0,0,0,0.25);
+  display:flex;align-items:center;gap:10px;
+}
+.fbadge-icon{font-size:1.2rem;}
+.fbadge-text strong{display:block;font-size:.78rem;color:var(--ink);font-weight:600;}
+.fbadge-text span{font-size:.7rem;color:var(--mid);}
+.fbadge.top-left{top:-20px;left:-30px;}
+.fbadge.bot-right{bottom:-16px;right:-20px;}
+
+/* ── SECTION COMMONS ── */
+.wrap{max-width:1140px;margin:0 auto;padding:0;}
+section{padding:88px 6%;}
+.sec-label{
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:10px;
+}
+.sec-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.7rem,3vw,2.4rem);
+  font-weight:800;letter-spacing:-.03em;
+  color:var(--ink);line-height:1.15;margin-bottom:14px;
+}
+.sec-sub{font-size:.95rem;color:var(--mid);line-height:1.75;max-width:500px;}
+.sec-head{margin-bottom:54px;}
+
+/* ── PROBLEM ── */
+.problem-section{background:var(--pale);}
+
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+
+.problem-pains{display:flex;flex-direction:column;gap:16px;margin-top:32px;}
+.pain-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:white;border:1px solid var(--border);border-radius:12px;padding:18px;
+}
+.pain-x{
+  width:32px;height:32px;border-radius:8px;background:#FFF0F0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;color:#E53E3E;font-weight:700;
+}
+.pain-text strong{display:block;font-size:.88rem;color:var(--ink);font-weight:600;margin-bottom:3px;}
+.pain-text span{font-size:.8rem;color:var(--mid);}
+
+.problem-right h2{
+  font-family:'Syne',sans-serif;font-size:clamp(1.5rem,2.5vw,2rem);
+  font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:16px;line-height:1.2;
+}
+.problem-right p{font-size:.92rem;color:var(--mid);line-height:1.8;margin-bottom:24px;}
+.problem-right p strong{color:var(--ink);}
+
+.solution-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{
+  background:var(--sky);color:var(--blue);
+  font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:20px;
+  border:1px solid rgba(18,70,230,0.15);
+}
+
+/* ── SERVICES ── */
+.services-section{background:white;}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+
+.svc-card{
+  border:1px solid var(--border);border-radius:16px;padding:30px 26px;
+  transition:all .3s;cursor:default;position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-card:hover{border-color:rgba(18,70,230,0.2);box-shadow:0 12px 40px rgba(18,70,230,0.08);transform:translateY(-4px);}
+
+.svc-icon{
+  width:50px;height:50px;border-radius:13px;
+  background:var(--sky);display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:18px;
+  transition:background .3s;
+}
+.svc-card:hover .svc-icon{background:var(--blue);}
+
+.svc-name{
+  font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;
+  color:var(--ink);margin-bottom:8px;letter-spacing:-.01em;
+}
+.svc-desc{font-size:.82rem;color:var(--mid);line-height:1.7;margin-bottom:18px;}
+
+.svc-features{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.svc-features li{
+  font-size:.78rem;color:var(--mid);
+  display:flex;align-items:center;gap:7px;
+}
+.svc-features li::before{
+  content:'→';color:var(--blue);font-size:.7rem;font-weight:700;flex-shrink:0;
+}
+
+/* ── RESULTS / WHY ── */
+.why-section{background:var(--ink);}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+
+.why-left .sec-label{color:#6B9FFF;}
+.why-left .sec-title{color:white;}
+.why-left .sec-sub{color:rgba(255,255,255,0.55);}
+
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.result-box{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;padding:22px;transition:border-color .3s;
+}
+.result-box:hover{border-color:rgba(18,70,230,0.4);}
+.result-val{
+  font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;
+  color:white;margin-bottom:4px;
+}
+.result-val .green{color:var(--green);}
+.result-lbl{font-size:.78rem;color:rgba(255,255,255,0.4);line-height:1.5;}
+
+.why-right{display:flex;flex-direction:column;gap:20px;}
+.why-point{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:20px;border:1px solid rgba(255,255,255,0.07);border-radius:12px;
+}
+.why-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:rgba(18,70,230,0.2);display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.why-point-text h4{font-size:.9rem;font-weight:600;color:white;margin-bottom:5px;}
+.why-point-text p{font-size:.8rem;color:rgba(255,255,255,0.45);line-height:1.6;}
+
+/* ── PROCESS ── */
+.process-section{background:var(--pale);}
+
+.process-track{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;margin-top:12px;
+}
+.process-track::before{
+  content:'';position:absolute;top:28px;left:14%;right:14%;height:1px;
+  background:linear-gradient(90deg,var(--blue) 0%,rgba(18,70,230,0.15) 100%);
+}
+
+.proc-step{text-align:center;padding:0 12px;position:relative;}
+.proc-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--blue);color:white;
+  font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;position:relative;z-index:1;
+  box-shadow:0 0 0 6px var(--pale), 0 0 0 7px rgba(18,70,230,0.15);
+}
+.proc-step:nth-child(n+2) .proc-num{background:rgba(18,70,230,0.12);color:var(--blue);}
+
+.proc-icon{font-size:1.3rem;margin-bottom:10px;}
+.proc-title{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.proc-desc{font-size:.78rem;color:var(--mid);line-height:1.65;}
+
+/* ── PACKAGES ── */
+.packages-section{background:white;}
+
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+
+.pkg-card{
+  border:1.5px solid var(--border);border-radius:18px;
+  padding:32px 28px;position:relative;transition:all .3s;
+}
+.pkg-card.featured{
+  border-color:var(--blue);
+  box-shadow:0 0 0 1px var(--blue),0 20px 60px rgba(18,70,230,0.12);
+}
+.pkg-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:white;
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;white-space:nowrap;
+}
+
+.pkg-name{
+  font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:10px;
+}
+.pkg-price{
+  font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;
+  color:var(--ink);letter-spacing:-.03em;
+}
+.pkg-price sup{font-size:1rem;vertical-align:super;}
+.pkg-period{font-size:.78rem;color:var(--mid);margin-bottom:20px;}
+.pkg-desc{font-size:.82rem;color:var(--mid);line-height:1.6;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pkg-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--mid);}
+.pkg-list li .chk{color:var(--green);font-weight:700;flex-shrink:0;}
+.pkg-list li .cross{color:#ccc;flex-shrink:0;}
+
+.btn-pkg{
+  width:100%;padding:12px;border-radius:10px;
+  font-size:.88rem;font-weight:600;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all .2s;border:none;
+}
+.btn-pkg.outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);}
+.btn-pkg.outline:hover{background:var(--sky);}
+.btn-pkg.fill{background:var(--blue);color:white;}
+.btn-pkg.fill:hover{background:var(--blue2);box-shadow:0 6px 20px rgba(18,70,230,0.3);}
+
+/* ── SOCIAL PROOF ── */
+.social-proof{background:var(--pale);}
+
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.proof-card{
+  background:white;border-radius:16px;padding:26px;
+  border:1px solid var(--border);
+}
+.proof-stars{color:#FBBF24;font-size:.85rem;margin-bottom:12px;letter-spacing:2px;}
+.proof-quote{font-size:.85rem;color:var(--mid);line-height:1.75;margin-bottom:18px;font-style:italic;}
+.proof-author{display:flex;align-items:center;gap:10px;}
+.proof-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--blue);color:white;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.proof-name{font-size:.83rem;font-weight:600;color:var(--ink);}
+.proof-role{font-size:.73rem;color:var(--mid);}
+
+/* ── CTA STRIP ── */
+.cta-strip{
+  background:linear-gradient(135deg,var(--blue) 0%,#0B38C8 100%);
+  padding:80px 6%;text-align:center;
+}
+.cta-strip h2{
+  font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);
+  font-weight:800;color:white;letter-spacing:-.02em;margin-bottom:14px;
+}
+.cta-strip p{color:rgba(255,255,255,0.7);font-size:.95rem;margin-bottom:32px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{
+  background:white;color:var(--blue);border:none;
+  padding:13px 28px;border-radius:9px;font-size:.9rem;font-weight:700;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+.btn-white-ghost{
+  background:transparent;color:white;
+  border:1.5px solid rgba(255,255,255,0.4);
+  padding:13px 24px;border-radius:9px;font-size:.9rem;font-weight:500;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.btn-white-ghost:hover{border-color:white;}
+
+/* ── CONTACT ── */
+.contact-section{background:white;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;}
+
+.contact-info{padding-top:8px;}
+.contact-info h2{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:14px;}
+.contact-info p{color:var(--mid);font-size:.9rem;line-height:1.8;margin-bottom:30px;}
+
+.c-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+.c-icon{
+  width:38px;height:38px;border-radius:10px;background:var(--sky);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;
+}
+.c-text strong{display:block;font-size:.84rem;font-weight:600;color:var(--ink);}
+.c-text span{font-size:.8rem;color:var(--mid);}
+
+.contact-form{
+  background:var(--pale);border-radius:18px;padding:36px;
+  border:1px solid var(--border);
+}
+.contact-form h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:24px;}
+
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{margin-bottom:16px;}
+.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:10px 14px;
+  border:1.5px solid rgba(10,15,30,0.12);border-radius:8px;
+  font-size:.86rem;font-family:'DM Sans',sans-serif;color:var(--ink);
+  background:white;outline:none;transition:border-color .2s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);}
+.fg textarea{resize:vertical;min-height:90px;}
+
+.btn-submit{
+  width:100%;background:var(--blue);color:white;border:none;
+  padding:14px;border-radius:10px;font-size:.92rem;font-weight:700;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;margin-top:4px;
+}
+.btn-submit:hover{background:var(--blue2);transform:translateY(-1px);}
+
+.form-success{
+  display:none;background:#E8FFF5;border:1.5px solid #A7EAD9;
+  border-radius:10px;padding:16px;text-align:center;
+  color:#0A6B4A;font-weight:500;font-size:.88rem;margin-top:14px;
+}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:56px 6% 28px;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px;}
+.footer-brand p{font-size:.8rem;color:rgba(255,255,255,0.4);line-height:1.7;max-width:220px;margin-top:10px;}
+.footer-col h5{font-size:.8rem;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{color:rgba(255,255,255,0.35);font-size:.8rem;text-decoration:none;transition:color .2s;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,0.3);}
+
+/* ── MOBILE ── */
+.mobile-nav{
+  display:none;position:fixed;top:66px;left:0;right:0;
+  background:white;border-bottom:1px solid var(--border);
+  padding:20px 6%;z-index:199;
+  flex-direction:column;gap:14px;
+  box-shadow:0 8px 30px rgba(10,15,30,0.1);
+}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{color:var(--mid);text-decoration:none;font-size:.95rem;font-weight:500;}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+.fade-in.vis{opacity:1;transform:translateY(0);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .problem-grid,.why-grid,.contact-grid{grid-template-columns:1fr;}
+  .services-grid,.packages-grid,.proof-grid{grid-template-columns:1fr 1fr;}
+  .process-track{grid-template-columns:1fr 1fr;gap:28px;}
+  .process-track::before{display:none;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .nav-links,.nav-right .btn-nav{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:560px){
+  .services-grid,.packages-grid,.proof-grid,.process-track{grid-template-columns:1fr;}
+  .frow{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .hero-nums{gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">ALMI<div class="logo-dot"></div></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#contact" class="btn-nav">Get Started →</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobNav">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#why" onclick="closeMob()">Why Us</a>
+  <a href="#packages" onclick="closeMob()">Packages</a>
+  <a href="#contact" onclick="closeMob()">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">🩺 Digital Marketing for Doctors</div>
+      <h1>
+        Grow Your <span class="blue">Practice.</span><br>
+        We Handle the <span class="accent">Digital.</span>
+      </h1>
+      <p class="hero-sub">
+        ALMI is a specialised digital marketing & consulting agency built exclusively for healthcare professionals. We handle your online presence — so you can focus on your patients.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary-hero">📞 Book a Free Call</a>
+        <a href="#services" class="btn-ghost">See What We Do</a>
+      </div>
+      <div class="hero-nums">
+        <div class="hnum"><div class="hnum-val">120+</div><div class="hnum-lbl">Doctor Clients</div></div>
+        <div class="hnum"><div class="hnum-val">3×</div><div class="hnum-lbl">Avg. Patient Growth</div></div>
+        <div class="hnum"><div class="hnum-val">5★</div><div class="hnum-lbl">Client Rating</div></div>
+      </div>
+    </div>
+
+    <!-- Floating browser mockup -->
+    <div class="hero-right">
+      <div class="fbadge top-left">
+        <div class="fbadge-icon">📈</div>
+        <div class="fbadge-text"><strong>+340% Reach</strong><span>in 90 days</span></div>
+      </div>
+
+      <div class="mock-card">
+        <div class="mock-topbar">
+          <div class="mock-dot r"></div>
+          <div class="mock-dot y"></div>
+          <div class="mock-dot g"></div>
+          <div class="mock-browser-url">drprakash.in · Your new website ✓</div>
+        </div>
+        <div class="mock-site-header">
+          <h3>Dr. Prakash Cardiology Centre</h3>
+          <p>Advanced cardiac care in Chennai. Book your consultation today.</p>
+          <div class="mock-cta-pill">Book Appointment →</div>
+        </div>
+        <div class="mock-cards-row">
+          <div class="mock-mini-card">
+            <div class="mock-mini-icon">🎬</div>
+            <div class="mock-mini-title">Reels Posted</div>
+            <div class="mock-mini-sub">12 this month</div>
+          </div>
+          <div class="mock-mini-card">
+            <div class="mock-mini-icon">📣</div>
+            <div class="mock-mini-title">Ad Campaigns</div>
+            <div class="mock-mini-sub">Google + Meta</div>
+          </div>
+        </div>
+        <div class="mock-stat-row">
+          <div class="mock-stat-pill"><div class="mock-stat-num">2.4K</div><div class="mock-stat-lbl">Monthly Visitors</div></div>
+          <div class="mock-stat-pill"><div class="mock-stat-num">89</div><div class="mock-stat-lbl">New Leads</div></div>
+          <div class="mock-stat-pill"><div class="mock-stat-num">4.9★</div><div class="mock-stat-lbl">Google Rating</div></div>
+        </div>
+      </div>
+
+      <div class="fbadge bot-right">
+        <div class="fbadge-icon">🚀</div>
+        <div class="fbadge-text"><strong>Website Live</strong><span>in 7 days</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div>
+        <div class="sec-label">The Problem</div>
+        <h2 class="sec-title" style="font-family:'Syne',sans-serif;font-size:clamp(1.6rem,2.5vw,2rem);font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.2;margin-bottom:0;">Most doctors are losing patients to competitors online — without even knowing it.</h2>
+        <div class="problem-pains">
+          <div class="pain-item">
+            <div class="pain-x">✕</div>
+            <div class="pain-text"><strong>No professional website</strong><span>Patients Google you and find nothing — or worse, your competitor.</span></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-x">✕</div>
+            <div class="pain-text"><strong>Zero social media presence</strong><span>Doctors with Instagram pages get 3x more new patient enquiries.</span></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-x">✕</div>
+            <div class="pain-text"><strong>No time to manage digital</strong><span>You're busy saving lives — marketing falls through the cracks.</span></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-x">✕</div>
+            <div class="pain-text"><strong>Generic agencies don't understand healthcare</strong><span>Most marketers can't write medical content or navigate healthcare regulations.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="problem-right">
+        <div class="sec-label">The ALMI Solution</div>
+        <h2>We are the digital team your clinic was missing.</h2>
+        <p>ALMI specialises <strong>only in healthcare</strong>. We understand medical terminology, patient behaviour, and how to build trust online for doctors. We handle everything — you just see results.</p>
+        <div class="solution-pills">
+          <span class="pill">✓ Healthcare-Specific</span>
+          <span class="pill">✓ Full-Service</span>
+          <span class="pill">✓ Results-Driven</span>
+          <span class="pill">✓ Dedicated Manager</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">What We Do</div>
+      <h2 class="sec-title">Everything Your Practice Needs Online</h2>
+      <p class="sec-sub">Six core services, all designed specifically for doctors and healthcare clinics.</p>
+    </div>
+    <div class="services-grid fade-in">
+
+      <div class="svc-card">
+        <div class="svc-icon">🌐</div>
+        <div class="svc-name">Doctor Website Design</div>
+        <div class="svc-desc">A professional, fast-loading website that converts visitors into booked appointments.</div>
+        <ul class="svc-features">
+          <li>Custom design for your specialty</li>
+          <li>Online appointment booking</li>
+          <li>Google-optimised (SEO ready)</li>
+          <li>Mobile-first, fast loading</li>
+          <li>Patient testimonials & gallery</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🎬</div>
+        <div class="svc-name">Instagram Reels & Content</div>
+        <div class="svc-desc">Engaging short-form video content that educates patients and builds your authority.</div>
+        <ul class="svc-features">
+          <li>Script writing by medical writers</li>
+          <li>Reel editing & caption writing</li>
+          <li>8–16 posts per month</li>
+          <li>Story templates & highlights</li>
+          <li>Content calendar management</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">📣</div>
+        <div class="svc-name">Digital Advertising</div>
+        <div class="svc-desc">Targeted Google & Meta ads that bring real patients to your clinic door.</div>
+        <ul class="svc-features">
+          <li>Google Search & Display Ads</li>
+          <li>Facebook & Instagram Ads</li>
+          <li>Local area targeting</li>
+          <li>Monthly performance reports</li>
+          <li>Lead tracking & ROI reports</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">⭐</div>
+        <div class="svc-name">Google Reputation Management</div>
+        <div class="svc-desc">Build a 5-star Google profile that patients trust before they even call you.</div>
+        <ul class="svc-features">
+          <li>Google Business Profile setup</li>
+          <li>Review generation strategy</li>
+          <li>Negative review management</li>
+          <li>Q&A and photo optimisation</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">✍️</div>
+        <div class="svc-name">Medical Content Writing</div>
+        <div class="svc-desc">Blogs, patient FAQs, and educational content written by healthcare-trained writers.</div>
+        <ul class="svc-features">
+          <li>SEO blog articles (4/month)</li>
+          <li>Patient FAQ pages</li>
+          <li>Procedure explainers</li>
+          <li>Email newsletters</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">📊</div>
+        <div class="svc-name">Analytics & Strategy</div>
+        <div class="svc-desc">Monthly strategy calls and clear reports — so you always know what's working.</div>
+        <ul class="svc-features">
+          <li>Monthly growth reports</li>
+          <li>Competitor analysis</li>
+          <li>Strategy & roadmap calls</li>
+          <li>Dedicated account manager</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY ALMI -->
+<section class="why-section" id="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="sec-label">Our Results</div>
+        <h2 class="sec-title">Numbers doctors care about.</h2>
+        <p class="sec-sub">We don't talk about "engagement" — we talk about new patients and real growth.</p>
+        <div class="results-grid">
+          <div class="result-box"><div class="result-val"><span class="green">3.2×</span></div><div class="result-lbl">Average increase in new patient enquiries within 6 months</div></div>
+          <div class="result-box"><div class="result-val">120+</div><div class="result-lbl">Doctor & clinic clients across Tamil Nadu</div></div>
+          <div class="result-box"><div class="result-val"><span class="green">7 days</span></div><div class="result-lbl">Average website delivery time from brief to live</div></div>
+          <div class="result-box"><div class="result-val">98%</div><div class="result-lbl">Client retention rate — doctors stay with us long-term</div></div>
+        </div>
+      </div>
+      <div class="why-right">
+        <div class="why-point">
+          <div class="why-icon">🏥</div>
+          <div class="why-point-text"><h4>Healthcare-only agency</h4><p>We work exclusively with doctors, clinics, and hospitals. We speak your language and understand healthcare compliance.</p></div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">🎯</div>
+          <div class="why-point-text"><h4>Local patient targeting</h4><p>We target the exact areas your patients come from — not random internet traffic. Every campaign is hyper-local.</p></div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">👤</div>
+          <div class="why-point-text"><h4>Dedicated account manager</h4><p>One point of contact who knows your practice inside-out. No handoffs, no confusion — just results.</p></div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">📱</div>
+          <div class="why-point-text"><h4>Tamil Nadu's doctor community</h4><p>We're embedded in Chennai's medical community. Our network and local expertise give you an edge no general agency can match.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;">
+      <div class="sec-label">How We Work</div>
+      <h2 class="sec-title">From Onboarding to Growth</h2>
+    </div>
+    <div class="process-track fade-in">
+      <div class="proc-step">
+        <div class="proc-num">1</div>
+        <div class="proc-icon">📞</div>
+        <div class="proc-title">Free Strategy Call</div>
+        <div class="proc-desc">We audit your current digital presence and map out a growth plan tailored to your specialty and location.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2</div>
+        <div class="proc-icon">📝</div>
+        <div class="proc-title">Onboarding & Brief</div>
+        <div class="proc-desc">Simple onboarding form. Share your clinic photos, logo, and goals. We handle everything from here.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3</div>
+        <div class="proc-icon">🚀</div>
+        <div class="proc-title">Launch in 7 Days</div>
+        <div class="proc-desc">Website live, social channels active, ads running. Your new digital practice is open for business.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4</div>
+        <div class="proc-icon">📈</div>
+        <div class="proc-title">Grow & Optimise</div>
+        <div class="proc-desc">Monthly reports, strategy calls, and continuous optimisation. We grow as your practice grows.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-section" id="packages">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;">
+      <div class="sec-label">Pricing</div>
+      <h2 class="sec-title">Simple, Transparent Packages</h2>
+      <p class="sec-sub" style="margin:0 auto;">No hidden fees. No contracts. Pick the plan that fits your clinic.</p>
+    </div>
+    <div class="packages-grid fade-in">
+
+      <div class="pkg-card">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price"><sup>₹</sup>8,999</div>
+        <div class="pkg-period">/ month</div>
+        <div class="pkg-desc">For solo doctors and small clinics just getting started online.</div>
+        <ul class="pkg-list">
+          <li><span class="chk">✓</span>Professional website (5 pages)</li>
+          <li><span class="chk">✓</span>Google Business Profile setup</li>
+          <li><span class="chk">✓</span>8 Instagram posts / month</li>
+          <li><span class="chk">✓</span>Monthly performance report</li>
+          <li><span class="cross">✕</span><span style="opacity:.4">Paid ads management</span></li>
+          <li><span class="cross">✕</span><span style="opacity:.4">Reels video editing</span></li>
+        </ul>
+        <button class="btn-pkg outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price"><sup>₹</sup>18,999</div>
+        <div class="pkg-period">/ month</div>
+        <div class="pkg-desc">For established doctors ready to grow their patient base with full digital marketing.</div>
+        <ul class="pkg-list">
+          <li><span class="chk">✓</span>Custom website (10 pages)</li>
+          <li><span class="chk">✓</span>Google Business optimisation</li>
+          <li><span class="chk">✓</span>16 posts + 8 Reels / month</li>
+          <li><span class="chk">✓</span>Google & Meta Ads (₹5K ad budget incl.)</li>
+          <li><span class="chk">✓</span>Monthly strategy call</li>
+          <li><span class="chk">✓</span>Dedicated account manager</li>
+        </ul>
+        <button class="btn-pkg fill" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price"><sup>₹</sup>34,999</div>
+        <div class="pkg-period">/ month</div>
+        <div class="pkg-desc">For multi-specialty clinics and hospitals wanting complete digital dominance.</div>
+        <ul class="pkg-list">
+          <li><span class="chk">✓</span>Full custom website + patient portal</li>
+          <li><span class="chk">✓</span>Reputation management</li>
+          <li><span class="chk">✓</span>Daily social content + Reels</li>
+          <li><span class="chk">✓</span>Full ads management (all platforms)</li>
+          <li><span class="chk">✓</span>Blog & medical content writing</li>
+          <li><span class="chk">✓</span>Priority support + weekly calls</li>
+        </ul>
+        <button class="btn-pkg outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="social-proof">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;">
+      <div class="sec-label">Doctor Reviews</div>
+      <h2 class="sec-title">What Doctors Say About ALMI</h2>
+    </div>
+    <div class="proof-grid fade-in">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">"ALMI built my website in under a week and started Instagram reels for my clinic. Within 2 months I had 40% more new patient calls. Absolutely worth every rupee."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">P</div>
+          <div><div class="proof-name">Dr. Prakash R.</div><div class="proof-role">Cardiologist, Chennai</div></div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">"I was sceptical about digital marketing but ALMI showed me real numbers. My Google reviews went from 12 to 87 in 3 months and I now rank #1 for my area."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">S</div>
+          <div><div class="proof-name">Dr. Sudha M.</div><div class="proof-role">Gynaecologist, Coimbatore</div></div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">"The reels they create for my ortho clinic look incredibly professional. Patients actually come in mentioning they saw my videos. The ROI is clear and measurable."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">V</div>
+          <div><div class="proof-name">Dr. Vignesh A.</div><div class="proof-role">Orthopaedic Surgeon, Madurai</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Ready to Grow Your Practice?</h2>
+  <p>Book a free 30-minute strategy call. No commitment, no sales pressure — just a clear plan for your clinic.</p>
+  <div class="cta-btns">
+    <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📞 Book Free Strategy Call</button>
+    <button class="btn-white-ghost" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">View Packages</button>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="sec-label">Talk to Us</div>
+        <h2>Let's Grow Your Practice Together</h2>
+        <p>Tell us a bit about your clinic and what you're looking for. We'll get back to you within 2 hours with a tailored plan.</p>
+        <div class="c-item">
+          <div class="c-icon">📞</div>
+          <div class="c-text"><strong>Call / WhatsApp</strong><span>+91 98765 43210</span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📧</div>
+          <div class="c-text"><strong>Email</strong><span>hello@almi.in</span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
+          <div class="c-text"><strong>Based in</strong><span>Chennai, Tamil Nadu</span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">⏱️</div>
+          <div class="c-text"><strong>Response time</strong><span>Within 2 hours on working days</span></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Get Your Free Strategy Call</h3>
+        <div class="frow">
+          <div class="fg"><label>Your Name</label><input type="text" id="cname" placeholder="Dr. Your Name"></div>
+          <div class="fg"><label>Specialty</label><input type="text" id="cspec" placeholder="e.g. Cardiologist"></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="cphone" placeholder="+91 98765 43210"></div>
+          <div class="fg"><label>City</label><input type="text" id="ccity" placeholder="Chennai"></div>
+        </div>
+        <div class="fg">
+          <label>Service Interested In</label>
+          <select id="cservice">
+            <option value="">Select a service</option>
+            <option>Website Design</option>
+            <option>Instagram Reels & Content</option>
+            <option>Digital Advertising (Google / Meta)</option>
+            <option>Google Reputation Management</option>
+            <option>Full Growth Package</option>
+            <option>Not sure – need advice</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Tell us about your clinic</label>
+          <textarea id="cmsg" placeholder="Brief description of your clinic, current challenges, and what you'd like to achieve..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitContact()">Send My Request →</button>
+        <div class="form-success" id="cSuccess">🎉 Request received! We'll WhatsApp you within 2 hours with next steps.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo" style="color:white;">ALMI<div class="logo-dot"></div></div>
+      <p>Digital marketing & consulting agency built exclusively for doctors and healthcare clinics in Tamil Nadu.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Website Design</a></li>
+        <li><a href="#services">Instagram Reels</a></li>
+        <li><a href="#services">Digital Ads</a></li>
+        <li><a href="#services">Reputation Mgmt</a></li>
+        <li><a href="#services">Content Writing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#why">Why ALMI</a></li>
+        <li><a href="#packages">Pricing</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><a href="mailto:hello@almi.in">hello@almi.in</a></li>
+        <li><a href="#">WhatsApp Us</a></li>
+        <li><a href="#">Chennai, TN</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 ALMI Digital. All rights reserved.</span>
+    <span class="footer-copy">Built for doctors. Powered by results.</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>20);
+});
+
+// Hamburger
+document.getElementById('ham').onclick=()=>{
+  document.getElementById('mobNav').classList.toggle('open');
+};
+function closeMob(){document.getElementById('mobNav').classList.remove('open');}
+
+// Scroll animations
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Contact form
+function submitContact(){
+  const name=document.getElementById('cname').value.trim();
+  const phone=document.getElementById('cphone').value.trim();
+  const service=document.getElementById('cservice').value;
+  if(!name||!phone||!service){alert('Please fill in your name, phone number, and select a service.');return;}
+  const btn=document.querySelector('.btn-submit');
+  btn.disabled=true;btn.textContent='✓ Sent!';btn.style.background='#0FCE8A';
+  document.getElementById('cSuccess').style.display='block';
+  document.getElementById('cSuccess').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
