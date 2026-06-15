@@ -5,5 +5,5 @@ This repository contains folders for:
 - Civil
 - Doctor
 - Lawyer
-- Marketing
+- Banking
 - Solar
