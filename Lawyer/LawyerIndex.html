@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALMI Lawyer Consultancy</title>
+
+    <!-- Poppins Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #1591dc;
+        --dark: #0a0f1c;
+        --muted: #555;
+        --light: #f8fbff;
+      }
+
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      /* BODY */
+      body {
+        background: #ffffff;
+        color: var(--dark);
+        font-size: 16px;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      /* HEADINGS */
+      h1 {
+        font-size: 52px;
+        font-weight: 800;
+        color: var(--dark);
+      }
+
+      h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--muted);
+      }
+
+      /* NAVBAR */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      nav h2 {
+        color: var(--primary);
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 15px;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+      }
+
+      /* HERO */
+      .hero {
+        height: 100vh;
+        background: url("https://images.unsplash.com/photo-1589578527966-fdac0f44566c")
+          center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .hero p {
+        margin-top: 15px;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .btn {
+        margin-top: 25px;
+        padding: 12px 28px;
+        background: var(--primary);
+        border: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 100px 10%;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+
+      /* ABOUT */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .about img {
+        width: 100%;
+        max-width: 500px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+        margin: auto;
+      }
+
+      /* CARDS */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: #f8fbff;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e6f0ff;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      /* WHY */
+      .why {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .box {
+        background: #f8fbff;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 4px solid var(--primary);
+      }
+
+      /* CONTACT */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 60%;
+        margin: auto;
+      }
+
+      input,
+      textarea {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      textarea {
+        height: 120px;
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #0a0f1c;
+        color: #aaa;
+      }
+
+      /* WHATSAPP */
+      .whatsapp {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25d366;
+        color: #fff;
+        padding: 12px 16px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 32px;
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+        form {
+          width: 100%;
+        }
+        nav {
+          padding: 15px 20px;
+        }
+        nav ul {
+          display: none;
+        }
+      }
+      .logo {
+        text-decoration: none;
+        font-size: 32px;
+        font-weight: 800;
+        color: #2c5ead;
+        transition: 0.3s;
+      }
+
+      .logo:hover {
+        color: #1591dc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="../index.html" class="logo"> ALMI </a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Premium Lawyer Website Solutions</h1>
+        <p>Modern • Professional • High Conversion Legal Websites</p>
+        <button class="btn">Get Free Demo</button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="title">About Us</h2>
+      <div class="about">
+        <p>
+          We design premium websites for lawyers, advocates and law firms with
+          focus on trust, branding and client conversion.
+        </p>
+        <img
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216"
+          alt="About Us"
+        />
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="title">Services</h2>
+      <div class="cards">
+        <div class="card">Lawyer Portfolio</div>
+        <div class="card">Law Firm Website</div>
+        <div class="card">Mobile Responsive</div>
+        <div class="card">SEO Optimization</div>
+        <div class="card">Booking System</div>
+        <div class="card">Maintenance</div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why">
+      <h2 class="title">Why Choose Us</h2>
+      <div class="why">
+        <div class="box">Premium UI/UX Design</div>
+        <div class="box">Fast Performance</div>
+        <div class="box">Client Conversion Focus</div>
+        <div class="box">Affordable Pricing</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="title">Contact Us</h2>
+
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Message"></textarea>
+        <button class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>© 2026 ALMI Lawyer Consultancy</footer>
+
+    <!-- WHATSAPP -->
+    <a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬 Chat</a>
+  </body>
+</html>
