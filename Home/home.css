@@ -288,7 +288,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #2c5ead, #1591dc);
+  background: #1591dc;
   border-radius: 18px;
   color: white;
 }
@@ -360,7 +360,7 @@ section {
 }
 
 .why-card {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: #1591dc;
 
   color: white;
   padding: 35px;
